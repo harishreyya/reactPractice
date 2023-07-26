@@ -27,7 +27,7 @@ function App() {
 <div className='grid'>
       {users.map((items)=>{
         return <div key={items.id}>
-
+{/* -------- */}
    <img src={items.image}/>
    <p>{items.title}</p>
           </div>
