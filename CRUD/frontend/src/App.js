@@ -37,7 +37,7 @@ function App() {
         <div className="resize" onMouseDown={handleMouseDown}>
         <Task/>
         </div>
-
+{/* ---- */}
       </div>
       <div className='bottomdiv resize' onMouseDown={handleMouseDown}>
       <Task/>
