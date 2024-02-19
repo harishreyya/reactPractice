@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts Viewer</title>
+  
+</head>
+<body>
+  <div id="posts-container"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const postsContainer = document.getElementById('posts-container');
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          const posts = JSON.parse(xhr.responseText);
+          displayPosts(posts);
+        } else {
+          console.error('Failed to fetch posts.');
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error('Network error occurred.');
+      };
+
+      xhr.send();
+
+      function displayPosts(posts) {
+        posts.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+          postElement.textContent =  post.id + '-' + post.title;
+          postsContainer.appendChild(postElement);
+        });
+      }
+    });
+  </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const postsContainer = document.getElementById('posts-container');
+      const form = document.createElement('form');
+  
+      const titleInput = document.createElement('input');
+      titleInput.setAttribute('type', 'text');
+      titleInput.setAttribute('placeholder', 'Enter title');
+      titleInput.setAttribute('name', 'title');
+      form.appendChild(titleInput);
+  
+      const bodyInput = document.createElement('textarea');
+      bodyInput.setAttribute('placeholder', 'Enter body');
+      bodyInput.setAttribute('name', 'body');
+      form.appendChild(bodyInput);
+  
+      const submitButton = document.createElement('button');
+      submitButton.setAttribute('type', 'submit');
+      submitButton.textContent = 'Add Post';
+      form.appendChild(submitButton);
+  
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+  
+        const title = titleInput.value.trim();
+        const body = bodyInput.value.trim();
+  
+        if (title && body) {
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+          xhr.setRequestHeader('Content-Type', 'application/json');
+  
+          xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              const response = JSON.parse(xhr.responseText);
+              console.log('Post added successfully:', response.id);
+              displaySuccessMessage();
+            } else {
+              console.error('Failed to add post.');
+            }
+          };
+  
+          xhr.onerror = function () {
+            console.error('Network error occurred.');
+          };
+  
+          const postData = JSON.stringify({ title, body });
+          xhr.send(postData);
+        } else {
+          console.error('Title and body are required.');
+        }
+      });
+  
+      function displaySuccessMessage() {
+        const successMessage = document.createElement('div');
+        successMessage.textContent = 'Post added successfully!';
+        successMessage.style.color = 'green';
+        postsContainer.appendChild(successMessage);
+  
+        // Optional: Clear form inputs after successful submission
+        titleInput.value = '';
+        bodyInput.value = '';
+      }
+  
+      document.body.appendChild(form);
+    });
+  </script>
+  
+</body>
+</html>
