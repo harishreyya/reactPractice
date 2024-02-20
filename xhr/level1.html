@@ -21,12 +21,12 @@
           const posts = JSON.parse(xhr.responseText);
           displayPosts(posts);
         } else {
-          console.error('Failed to fetch posts.');
+          console.log('Failed to fetch posts.');
         }
       };
 
       xhr.onerror = function () {
-        console.error('Network error occurred.');
+        console.log('Network error occurred.');
       };
 
       xhr.send();
@@ -80,28 +80,28 @@
               console.log('Post added successfully:', response.id);
               displaySuccessMessage();
             } else {
-              console.error('Failed to add post.');
+              console.log('Failed to add post.');
             }
           };
   
-          xhr.onerror = function () {
-            console.error('Network error occurred.');
+          xhr.onerror = function (error) {
+            console.log('Network error occurred.'+ error);
           };
   
           const postData = JSON.stringify({ title, body });
           xhr.send(postData);
         } else {
-          console.error('Title and body are required.');
+          console.log('Title and body are required.');
         }
       });
   
       function displaySuccessMessage() {
+
         const successMessage = document.createElement('div');
         successMessage.textContent = 'Post added successfully!';
         successMessage.style.color = 'green';
         postsContainer.appendChild(successMessage);
   
-        // Optional: Clear form inputs after successful submission
         titleInput.value = '';
         bodyInput.value = '';
       }
