@@ -17,10 +17,10 @@ function App() {
         const postsData = await response.json();
         setPosts(postsData);
       } else {
-        console.error('Failed to fetch posts.');
+        console.log('Failed to fetch posts.');
       }
     } catch (error) {
-      console.error('Network error occurred.', error);
+      console.log('Network error occurred.', error);
     }
   };
 
@@ -39,15 +39,15 @@ function App() {
           const responseData = await response.json();
           console.log('Post added successfully:', responseData.id);
           displaySuccessMessage();
-          fetchPosts(); // Optional: Refresh posts after adding a new one
+          fetchPosts(); 
         } else {
-          console.error('Failed to add post.');
+          console.log('Failed to add post.');
         }
       } catch (error) {
-        console.error('Network error occurred.', error);
+        console.log('Network error occurred.', error);
       }
     } else {
-      console.error('Title and body are required.');
+      console.log('Title and body are required.');
     }
   };
 
@@ -55,10 +55,9 @@ function App() {
     setSuccessMessage('Post added successfully!');
     setTimeout(() => {
       setSuccessMessage('');
-      // Optional: Clear form inputs after successful submission
       setTitle('');
       setBody('');
-    }, 3000); // Display success message for 3 seconds
+    }, 3000); 
   };
 
   return (
