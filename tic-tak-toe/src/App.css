@@ -1,0 +1,57 @@
+.box {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  grid-gap: 5px;
+  width: fit-content;
+  margin: auto;
+  background-image: linear-gradient(to right, rgb(248, 35, 35), rgb(247, 169, 25), rgb(251, 251, 28), rgb(16, 216, 16), rgb(48, 48, 245), rgb(152, 50, 225), rgb(189, 82, 189));
+  border: 5px solid grey;
+  border-radius: 10px;
+}
+
+.box > div {
+  border: 5px solid white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.box > div:hover {
+  background-color: rgb(13, 113, 36);
+  transition: ease-in-out 0.5s;
+}
+
+.reset-wrap {
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.reset {
+  width: 100px;
+  height: 50px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: large;
+  border-radius: 5px;
+}
+
+.reset:hover {
+  transition: ease-in-out 0.5s;
+  background-color: rgb(203, 205, 202);
+  color: rgb(233, 48, 94);
+}
+
+#show-warning {
+  font-size: 38px;
+  color: red;
+}
