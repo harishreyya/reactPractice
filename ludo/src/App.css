@@ -1,0 +1,38 @@
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 300px;
+  margin: 20px auto;
+  position: relative; 
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+}
+
+.snake {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+
+.ladder {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 3px;
+  height: 50px;
+  background-color: green;
+}
