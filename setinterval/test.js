@@ -106,3 +106,22 @@
 // const numbers = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 8];
 // const repeatedNumbers = findRepeatedNumbers(numbers);
 // console.log(repeatedNumbers);  // Output: [2, 3, 8];
+
+// let arr = [2,3,4,5,6,3,2,2,3,,5,6,6,6,2,7,7,8,4]
+// let numTo = 4
+// let res = arr.filter(num => num !== numTo)
+// console.log(res)
+
+// if (true) {
+//     // let blockVar = 'I am block scoped';
+//     // var blockVar = 'I am block scoped';
+//     // console.log(blockVar); // I am block scoped
+//   }
+//   console.log(blockVar); 
+// let functionVar = 'I am local out';
+// function foo() {
+//     let functionVar = 'I am local';
+//     console.log(functionVar); // I am local
+//   }
+//   foo()
+//   console.log(functionVar); 
