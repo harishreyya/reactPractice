@@ -47,10 +47,62 @@
 //   init();
 
 
-let arr = [2,3,4,5,6,4,3,3,7,8,]
+// let arr = [2,3,4,5,6,4,3,3,7,8,]
 
-function duplicate(){
-    return [...new Set(arr)]
-}
+// function duplicate(){
+//     return [...new Set(arr)]
+// }
 
-console.log(duplicate())
+// console.log(duplicate())
+
+// let str = "one little elephant sit on wall"
+
+// let res = str.split(" ").map(word => word.length);
+
+// console.log(res)
+
+// function findRepeatedNumbers(arr) {
+//     const seen = new Set();
+//     const repeated = new Set();
+//     for (let num of arr) {
+//         if (seen.has(num)) {
+//             repeated.add(num);
+//         } else {
+//             seen.add(num);
+//         }
+//     }
+//     return Array.from(repeated);
+// }
+
+// const numbers = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 8];
+// const repeatedNumbers = findRepeatedNumbers(numbers);
+// console.log(repeatedNumbers);  
+
+// ------------------------
+
+// function findRepeatedNumbers(arr) {
+//     const frequency = {};
+//     const repeated = [];
+
+//     // Count the frequency of each number
+//     for (let num of arr) {
+//         if (frequency[num]) {
+//             frequency[num]++;
+//         } else {
+//             frequency[num] = 1;
+//         }
+//     }
+
+//     // Find numbers that appear more than once
+//     for (let num in frequency) {
+//         if (frequency[num] > 1) {
+//             repeated.push(Number(num));
+//         }
+//     }
+
+//     return repeated;
+// }
+
+// const numbers = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 8];
+// const repeatedNumbers = findRepeatedNumbers(numbers);
+// console.log(repeatedNumbers);  // Output: [2, 3, 8];
