@@ -45,3 +45,12 @@
     
 //   }
 //   init();
+
+
+let arr = [2,3,4,5,6,4,3,3,7,8,]
+
+function duplicate(){
+    return [...new Set(arr)]
+}
+
+console.log(duplicate())
